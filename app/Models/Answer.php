@@ -10,7 +10,7 @@ class Answer extends Model
     use HasFactory;
 
     protected $fillable = [ 
-        'answer'
+        'visitors_id', 'questions_id', 'answer'
      ];
 
         public function visitor(){

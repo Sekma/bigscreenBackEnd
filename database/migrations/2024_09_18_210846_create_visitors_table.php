@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('visitors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('reference');
+            $table->string('reference')->unique(); // Rendre la référence unique
             $table->string('name');
-            $table->string('email');
+            $table->string('email')->unique(); // Rendre l'email unique
             $table->timestamps();
         });
     }

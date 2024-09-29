@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +35,7 @@ Route::get('logout', [AuthController::class, 'logout']);
 // partie utilisateur
 
 Route::get('question', [QuestionController::class, 'index']);
+
+Route::post('visitor', [VisitorController::class, 'store']);
+
+Route::post('answer', [AnswerController::class, 'store']);

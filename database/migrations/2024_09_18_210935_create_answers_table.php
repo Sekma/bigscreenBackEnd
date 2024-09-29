@@ -16,11 +16,11 @@ return new class extends Migration
             
             $table->unsignedInteger('visitors_id');
             $table->unsignedInteger('questions_id');
+            $table->text('answer');
 
             $table->foreign('visitors_id')->references('id')->on('visitors')->onDelete('cascade');
             $table->foreign('questions_id')->references('id')->on('questions')->onDelete('cascade');
 
-            $table->string('answer');
             $table->timestamps();
         });
     }

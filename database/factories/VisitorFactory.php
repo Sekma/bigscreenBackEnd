@@ -17,7 +17,7 @@ class VisitorFactory extends Factory
     public function definition(): array
     {
         return [
-            'reference' => $this->faker->regexify('[A-Z0-9]{8}'),
+            'reference' => $this->faker->regexify('[A-Z0-9]{6}'),
             'name'=>$this->faker->sentence(2, true),
             'email'=>$this->faker->email()
         ];
