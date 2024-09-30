@@ -38,4 +38,8 @@ Route::get('question', [QuestionController::class, 'index']);
 
 Route::post('visitor', [VisitorController::class, 'store']);
 
+Route::delete('delete_visitor/{email}', [VisitorController::class, 'destroy']);
+
 Route::post('answer', [AnswerController::class, 'store']);
+
+Route::get('answer/{ref}', [AnswerController::class, 'show']);

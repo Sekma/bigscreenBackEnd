@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Answer;
 use App\Models\Visitor;
-use Illuminate\Support\Facades\Log;
 
 
 class AnswerController extends Controller
@@ -50,6 +49,7 @@ class AnswerController extends Controller
         }
 
         $visitorId = $visitor->id;
+        $visitorRef = $visitor->reference;
 
         // Traiter les données validées
         foreach ($request->input('answer') as $index => $answer) {
@@ -60,7 +60,12 @@ class AnswerController extends Controller
             ]);
         }
 
-        return response()->json(['status' => 'success', 'message' => 'Formulaire validé']);
+        return response()->json(['status' => 'success', 'message' => 'Toute l’équipe de Bigscreen vous remercie pour votre engagement. Grâce à 
+                                                                    votre investissement, nous vous préparons une application toujours plus 
+                                                                    facile à utiliser, seul ou en famille. 
+                                                                    Si vous désirez consulter vos réponse ultérieurement, vous pouvez consultez 
+                                                                    cette adresse: ',
+                                                                'reference' => $visitorRef]);
 
     } catch (\Illuminate\Validation\ValidationException $e) {
         return response()->json([
@@ -75,10 +80,52 @@ class AnswerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $ref)
     {
-        //
+        // Trouver le visiteur par sa référence
+        $visitor = Visitor::where('reference', $ref)->first();
+        
+        if (!$visitor) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Visiteur non trouvé.'
+            ], 404);
+        }
+    
+        // Récupérer les réponses associées par l'id de visiteur
+        $answers = Answer::where('visitors_id', $visitor->id)
+        ->join('questions', 'answers.questions_id', '=', 'questions.id') // Jointure sur l'id de la question
+        ->join('visitors', 'answers.visitors_id', '=', 'visitors.id') // Jointure sur l'id du visiteur
+        ->select('answers.*', 'questions.id as question_id', 'questions.question', 'visitors.name as visitor') // Sélectionner tous les champs de answers, l'id de la question, le texte de la question et le visiteur
+        ->orderBy('question_id')
+        ->get();
+    
+        // Créer un tableau pour stocker les réponses
+        $response = [];
+        foreach ($answers as $answer) {
+            $response[] = [
+                'question_id' => $answer->question_id, // ID de la question
+                'question' => $answer->question,       // Texte de la question
+                'answer' => $answer->answer,             // Réponse
+                'date' => $answer->created_at->format('d-m-Y H:i:s'),// Date de création
+                'visitor' => $answer->visitor
+            ];
+        }
+        // Vérifier si des réponses ont été trouvées
+        if ($answers->isEmpty()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Aucune réponse trouvée pour ce visiteur.'
+            ], 404);
+        }
+        // Retourner les réponses dans la réponse JSON
+        return response()->json([
+            'status' => 'success',
+            'message' => $response
+        ]);
     }
+    
+
 
     /**
      * Show the form for editing the specified resource.

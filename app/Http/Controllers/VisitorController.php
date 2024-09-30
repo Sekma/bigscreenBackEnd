@@ -90,8 +90,22 @@ class VisitorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $email)
     {
-        //
+        $visitor = Visitor::where('email', $email)->first();
+        
+        if(!$visitor){
+            return response()->json([
+                'status' => 'error',
+                'message' => 'currency not found'
+            ]);
+        }else{
+            $visitor->delete();
+
+            return response()->json([
+                'status' => 'success',
+                'message' => 'delete currency successfully'
+            ]);
+        }
     }
 }
