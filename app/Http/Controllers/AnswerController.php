@@ -15,8 +15,27 @@ class AnswerController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            // Récupérer toutes les réponses avec jointures
+            $answers = Answer::join('questions', 'answers.questions_id', '=', 'questions.id')
+                ->join('visitors', 'answers.visitors_id', '=', 'visitors.id')
+                ->select('questions.id as question_id', 'questions.question', 'answers.*', 'visitors.name as visitor')
+                ->orderBy('answers.visitors_id') // Trier par visitor_id
+                ->get();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => $answers
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while fetching answers.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
     }
+    
 
     /**
      * Show the form for creating a new resource.

@@ -97,14 +97,14 @@ class VisitorController extends Controller
         if(!$visitor){
             return response()->json([
                 'status' => 'error',
-                'message' => 'currency not found'
+                'message' => 'visitor not found'
             ]);
         }else{
             $visitor->delete();
 
             return response()->json([
                 'status' => 'success',
-                'message' => 'delete currency successfully'
+                'message' => 'delete visitor successfully'
             ]);
         }
     }

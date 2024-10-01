@@ -13,12 +13,22 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
-
-        return response()->json([
-            'questions'=> $questions
-        ]);
+        try {
+            $questions = Question::all();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => $questions
+            ]);
+        } catch (\Exception $e) { // Capturer toutes les exceptions
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while fetching questions',
+                'error' => $e->getMessage() // Affiche le message d'erreur
+            ], 500); // Utiliser un code 500 pour les erreurs de serveur
+        }
     }
+    
 
     /**
      * Show the form for creating a new resource.

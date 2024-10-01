@@ -43,3 +43,9 @@ Route::delete('delete_visitor/{email}', [VisitorController::class, 'destroy']);
 Route::post('answer', [AnswerController::class, 'store']);
 
 Route::get('answer/{ref}', [AnswerController::class, 'show']);
+
+// partie admin
+
+Route::get('admin_question', [QuestionController::class, 'index']);
+
+Route::get('admin_answer', [AnswerController::class, 'index']);
