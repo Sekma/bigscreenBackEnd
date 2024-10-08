@@ -36,6 +36,24 @@ class AnswerController extends Controller
         }
     }
     
+    public function statistical(string $id, string $answer)
+    {
+        try {
+            // Récupérer toutes les réponses avec jointures
+            $answers = Answer::where('questions_id', $id)->where('answer', $answer)->count();
+    
+            return response()->json([
+                'status' => 'success',
+                'message' => $answers
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An error occurred while fetching answers.',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 
     /**
      * Show the form for creating a new resource.

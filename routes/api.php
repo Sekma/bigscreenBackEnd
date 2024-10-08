@@ -49,3 +49,5 @@ Route::get('answer/{ref}', [AnswerController::class, 'show']);
 Route::get('admin_question', [QuestionController::class, 'index']);
 
 Route::get('admin_answer', [AnswerController::class, 'index']);
+
+Route::get('admin_statistical/{id}/{answer}', [AnswerController::class, 'statistical']);
