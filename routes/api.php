@@ -50,4 +50,4 @@ Route::get('admin_question', [QuestionController::class, 'index']);
 
 Route::get('admin_answer', [AnswerController::class, 'index']);
 
-Route::get('admin_statistical/{id}/{answer}', [AnswerController::class, 'statistical']);
+Route::get('admin_statistical/{id}', [AnswerController::class, 'statistical']);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Answer;
 use App\Models\Visitor;
 
@@ -36,11 +37,16 @@ class AnswerController extends Controller
         }
     }
     
-    public function statistical(string $id, string $answer)
+    public function statistical(string $id)
     {
         try {
             // Récupérer toutes les réponses avec jointures
-            $answers = Answer::where('questions_id', $id)->where('answer', $answer)->count();
+            $answers = Answer::join('questions', 'answers.questions_id', '=', 'questions.id')
+            ->select('answer', DB::raw('COUNT(*) as answer_count'))
+            ->where('questions_id', $id)
+            ->groupBy('answer')
+            ->get();
+            
     
             return response()->json([
                 'status' => 'success',
