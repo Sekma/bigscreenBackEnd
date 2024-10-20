@@ -13,7 +13,7 @@ class Question extends Model
         'type', 'question', 'choices'
      ];
      protected $casts = [
-        'choices' => 'array', // Indique à Eloquent de traiter cette colonne comme un tableau
+        'choices' => 'array', // Indiquer à Eloquent de traiter cette colonne comme un tableau
     ];
 
     public function answer(){

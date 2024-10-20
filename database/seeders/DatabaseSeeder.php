@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(AdminSeeder::class);
 
-        Visitor::factory()->count(3)->create();
+        Visitor::factory()->count(100)->create();
 
         $this->call(QuestionSeeder::class);
          
