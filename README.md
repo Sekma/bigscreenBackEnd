@@ -76,7 +76,13 @@ Bigscreen Survey est une application web dédiée à la collecte d'informations 
     - `questions_id` : Référence à l'identifiant de la question (foreign key).
     - `answer` : Réponse fournie par le visiteur.
 
-# Fabriqué avec
+## Statistiques
+Utilisez la librairie Chart.js pour afficher les résultats des sondages sous forme de graphiques (Pie, Radar).
+
+## Sécurité
+L'application utilise Sanctum pour gérer l'authentification des utilisateurs.
+
+## Fabriqué avec
 
 <div style="text-align: center;">
   <img alt="VSCode" height="50" width="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg">
@@ -87,7 +93,8 @@ Bigscreen Survey est une application web dédiée à la collecte d'informations 
 <br>
 <hr>
     
-# Auteur
+## Auteur
 - Sekma Mohamed Hedi <a href="https://github.com/Sekma">@Sekma<a/>
 
-
+## Conclusion
+Ce projet a été conçu pour répondre aux besoins de Bigscreen tout en respectant les contraintes définies. Les utilisateurs peuvent facilement participer au sondage et l'administrateur peut gérer les réponses efficacement.
