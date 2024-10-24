@@ -57,10 +57,24 @@ Bigscreen Survey est une application web dédiée à la collecte d'informations 
 
 
 ## Relations:
- 
-• Table questions : Contient les informations sur les questions (id, corps de la question, type). <br> 
-• Table answers : Contient les réponses des utilisateurs, avec des références aux questions. <br> 
-• Table users : Contient les informations des utilisateurs (id, email). <br> 
+
+- **Table visitors** : Contient les informations sur les visiteurs (id, référence, nom, email). 
+    - `id` : Identifiant unique.
+    - `reference` : Référence unique pour chaque visiteur.
+    - `name` : Nom du visiteur.
+    - `email` : Email du visiteur (unique).
+
+- **Table questions** : Contient les informations sur les questions (id, corps de la question, type).
+    - `id` : Identifiant unique.
+    - `type` : Type de la question (ex. choix multiples).
+    - `question` : Corps de la question.
+    - `choices` : Choix possibles (format JSON).
+
+- **Table answers** : Contient les réponses des utilisateurs, avec des références aux questions.
+    - `id` : Identifiant unique.
+    - `visitors_id` : Référence à l'identifiant du visiteur (foreign key).
+    - `questions_id` : Référence à l'identifiant de la question (foreign key).
+    - `answer` : Réponse fournie par le visiteur.
 
 # Fabriqué avec
 
