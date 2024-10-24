@@ -4,7 +4,7 @@
 </div>
 
 ## Présentation
-
+Projet de fin d'études à l'École Multimédia à Paris. <br>
 Bigscreen Survey est une application web dédiée à la collecte d'informations auprès des utilisateurs de l'application VR Bigscreen. L'objectif est de fournir un sondage en ligne permettant aux utilisateurs de partager leurs avis et préférences concernant les fonctionnalités de l'application. L'application comprend une API REST pour gérer les réponses et une interface d'administration pour la gestion des données.
 
 ## Choix Technologiques 
