@@ -31,27 +31,30 @@ Bigscreen Survey est une application web dédiée à la collecte d'informations 
     o Route : `GET /logout` <br> 
       &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Déconnecter l'utilisateur. <br> <br> 
    
-2. Gestion des réponses <br> 
+2. Gestion des questions <br> 
+    o Route : `GET /admin_question` <br> 
+      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Récupérer toutes les questions du sondage. <br> <br> 
+
+3. Gestion des réponses <br> 
     o Route : `GET /admin_answer` <br> 
       &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Récupérer toutes les réponses du sondage. <br> 
     o Route : `GET /admin_statistical/{id}` <br> 
       &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Afficher les statistiques des réponses. <br> <br> 
 
-3. Gestion des questions <br> 
-    o Route : `GET /admin_question` <br> 
-      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Récupérer toutes les questions du sondage.
-
 ### API Utilisateur 
 
-4. Service fonctionnel <br> 
-    o Route : `GET /currencies` <br> 
-      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Vérifier si le service est fonctionnel et récupérer la liste des questions. <br> <br> 
-    
-5. Réponses des utilisateurs <br> 
+4. Soumission des réponses <br> 
     o Route : `POST /answer` <br> 
       &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Soumettre les réponses d'un utilisateur au sondage. <br> 
     o Route : `GET /answer/{ref}` <br> 
-      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Récupérer les réponses d'un utilisateur avec une référence unique.  
+      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Récupérer les réponses d'un utilisateur avec une référence unique. <br> <br> 
+
+5. Gestion des visiteurs <br> 
+    o Route : `POST /visitor` <br> 
+      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Enregistrer un visiteur. <br> 
+    o Route : `DELETE /delete_visitor/{email}` <br> 
+      &nbsp;&nbsp;&nbsp; ▪ Fonctionnalité : Supprimer un visiteur par email. <br> 
+
 
 ## Relations:
  
