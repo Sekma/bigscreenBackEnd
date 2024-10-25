@@ -1,6 +1,6 @@
 <div style="text-align: center;">
     <h1>Bigscreen Survey</h1>
-    <img src="https://github.com/Sekma/bigscreenFrontEnd/blob/main/src/assets/logo(2).png" width="20%" alt=""><br><br>
+    <img src="https://github.com/Sekma/bigscreenFrontEnd/blob/main/src/assets/logo(2).png" width="30%" alt=""><br><br>
 </div>
 
 ## Présentation
