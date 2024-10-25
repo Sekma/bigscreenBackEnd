@@ -10,9 +10,9 @@ Bigscreen Survey est une application web dédiée à la collecte d'informations 
 ## Choix Technologiques 
 
 <ul>
-    <li>Backend (API) :<strong> Laravel</strong> est choisi pour sa structure MVC, sa simplicité d'utilisation, et ses fonctionnalités intégrées telles que l'ORM Eloquent et le système de routage, ce qui facilite le développement rapide et la maintenance.</li>
-    <li>Base de données : <strong>MySQL</strong> est sélectionné pour sa fiabilité et sa capacité à gérer des données structurées, ce qui est essentiel pour la gestion des réponses du sondage.</li>
-    <li>Frontend (Administration) : <strong>Vue.js</strong>est privilégié pour sa flexibilité et sa facilité d'intégration avec des APIs REST. Son approche réactive améliore l'expérience utilisateur dans l'interface d'administration. <br>
+    <li>Backend (API) :<strong> Laravel </strong> est choisi pour sa structure MVC, sa simplicité d'utilisation, et ses fonctionnalités intégrées telles que l'ORM Eloquent et le système de routage, ce qui facilite le développement rapide et la maintenance.</li>
+    <li>Base de données : <strong> MySQL </strong> est sélectionné pour sa fiabilité et sa capacité à gérer des données structurées, ce qui est essentiel pour la gestion des réponses du sondage.</li>
+    <li>Frontend (Administration) : <strong> Vue.js </strong> est privilégié pour sa flexibilité et sa facilité d'intégration avec des APIs REST. Son approche réactive améliore l'expérience utilisateur dans l'interface d'administration. <br>
         <a href="https://github.com/Sekma/bigscreenFrontEnd" target="_blank">Code Frontend (Administration)</a>
     </li>
 </ul>
