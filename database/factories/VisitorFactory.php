@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Visitor>
@@ -17,7 +18,7 @@ class VisitorFactory extends Factory
     public function definition(): array
     {
         return [
-            'reference' => $this->faker->regexify('[A-Z0-9]{6}'),
+            'reference' => Str::random(32),
             'name'=>$this->faker->sentence(2, true),
             'email'=>$this->faker->email()
         ];

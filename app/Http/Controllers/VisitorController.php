@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Visitor;
+use Illuminate\Support\Str;
 
 class VisitorController extends Controller
 {
@@ -27,13 +28,7 @@ class VisitorController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    // function pour générer la référence 
-
-    function random_reference($chars) {
-        $letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-        return substr(str_shuffle($letters), 0, $chars);
-        }
-
+  
         public function store(Request $request)
         {
             try {
@@ -44,7 +39,7 @@ class VisitorController extends Controller
                 ]);
         
                 // Générer une référence aléatoire
-                $reference = $this->random_reference(6);
+                $reference = Str::random(32);
                 
                 // Créer l'enregistrement du visiteur
                 Visitor::create(array_merge($request->all(), ['reference' => $reference]));
